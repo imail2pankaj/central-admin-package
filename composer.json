@@ -1,0 +1,17 @@
+{
+    "name": "scenic-it-solutions/central-admin",
+    "description": "Package for managing different sites login from the central admin",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ScenicItSolutions\\CentralAdmin\\": "src/"
+        }
+    },
+    "authors": [{
+        "name": "Pankaj Makwana",
+        "email": "imail2pankaj@gmail.com"
+    }],
+    "minimum-stability": "dev",
+    "require": {}
+}
