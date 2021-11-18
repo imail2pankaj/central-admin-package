@@ -14,7 +14,6 @@ class ContactController extends Controller
 
     public function send(Request $request) {
         $contact = Contact::create($request->all());
-        dd(config("central-admin.send_email_to"));
         return redirect()->back();
     }
 }
