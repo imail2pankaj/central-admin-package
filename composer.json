@@ -13,5 +13,12 @@
         "email": "imail2pankaj@gmail.com"
     }],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ScenicItSolutions\\CentralAdmin\\CentralAdminServiceProvider"
+            ]
+        }
+    }
 }
