@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact US Page</title>
 </head>
-<body>
+<body style="text-align: center">
     <h1>Contact US</h1>
 
-    <form method="POST">
+    <form method="POST" style="width:500px;margin:0 auto">
         @csrf
 
         <input type="text" name="name" placeholder="Enter name"> <br>
