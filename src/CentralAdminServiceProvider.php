@@ -4,23 +4,23 @@ namespace ScenicItSolutions\CentralAdmin;
 
 use Illuminate\Support\ServiceProvider;
 
-class CentralAdminServiceProvider extends ServiceProvider {
-
-    public function boot() {
+class CentralAdminServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'central-admin');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
-        $this->mergeConfigFrom(__DIR__.'/config/central-admin.php','central-admin');
-        $this->publishes([__DIR__.'/config/central-admin.php' => config_path('central-admin.php'),]);
-        $this->publishes([__DIR__.'/resources/assets' => public_path('vendor/laravel-admin')]);
+        $this->mergeConfigFrom(__DIR__.'/config/central-admin.php', 'central-admin');
+        $this->publishes([__DIR__.'/config/central-admin.php' => config_path('central-admin.php')], 'central-admin-config');
+        $this->publishes([__DIR__.'/resources/assets' => public_path('vendor/laravel-admin')], 'central-admin-assets');
         if (file_exists(__DIR__ . '/helpers.php')) {
             require __DIR__ . '/helpers.php';
         }
-
     }
 
-    public function register() {
-
+    public function register()
+    {
     }
 }
