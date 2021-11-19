@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "ScenicItSolutions\\CentralAdmin\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "authors": [{
         "name": "Pankaj Makwana",
@@ -18,7 +21,10 @@
         "laravel": {
             "providers": [
                 "ScenicItSolutions\\CentralAdmin\\CentralAdminServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "CentralAdmin": "ScenicItSolutions\\CentralAdmin\\Facades\\CentralAdmin"
+            }
         }
     }
 }

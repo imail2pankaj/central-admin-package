@@ -15,6 +15,9 @@ class CentralAdminServiceProvider extends ServiceProvider {
         $this->publishes([
             __DIR__.'/config/central-admin.php' => config_path('central-admin.php'),
         ]);
+        if (file_exists(__DIR__ . '/helpers.php')) {
+            require __DIR__ . '/helpers.php';
+        }
 
     }
 
