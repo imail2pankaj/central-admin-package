@@ -14,6 +14,7 @@ class CentralAdminServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(__DIR__.'/config/central-admin.php','central-admin');
         $this->publishes([
             __DIR__.'/config/central-admin.php' => config_path('central-admin.php'),
+            __DIR__.'/resources/assets' => public_path('vendor/laravel-admin')
         ]);
         if (file_exists(__DIR__ . '/helpers.php')) {
             require __DIR__ . '/helpers.php';
