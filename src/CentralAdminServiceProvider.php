@@ -13,8 +13,9 @@ class CentralAdminServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->mergeConfigFrom(__DIR__.'/config/central-admin.php', 'central-admin');
-        $this->publishes([__DIR__.'/config/central-admin.php' => config_path('central-admin.php')], 'central-admin-config');
-        $this->publishes([__DIR__.'/resources/assets' => public_path('vendor/laravel-admin')], 'central-admin-assets');
+
+        $this->registerPublishing();
+
         if (file_exists(__DIR__ . '/helpers.php')) {
             require __DIR__ . '/helpers.php';
         }
@@ -23,4 +24,22 @@ class CentralAdminServiceProvider extends ServiceProvider
     public function register()
     {
     }
+
+    /**
+     * Register the package's publishable resources.
+     *
+     * @return void
+     */
+    protected function registerPublishing()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([__DIR__.'/config' => config_path()], 'central-admin-config');
+            // $this->publishes([__DIR__.'/resources/lang' => resource_path('lang')], 'central-admin-lang');
+            $this->publishes([__DIR__.'/database/migrations' => database_path('migrations')], 'central-admin-migrations');
+            $this->publishes([__DIR__.'/resources/assets' => public_path('vendor/laravel-admin')], 'central-admin-assets');
+
+            // $this->publishes([__DIR__.'/config/central-admin.php' => config_path('central-admin.php')], 'central-admin-config');
+            // $this->publishes([__DIR__.'/resources/assets' => public_path('vendor/laravel-admin')], 'central-admin-assets');
+        }
+    }    
 }
